@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gke-tutorial-deployment
+  namespace: default
+  labels:
+    app: gke-tutorial-deployment
+spec:
+  replicas: 1 # number of pods
+  template:
+    metadata:
+      labels:
+        app: gke-tutorial-deployment
+    spec:
+      containers:
+        - name: gke-tutorial-image
+          image: eu.gcr.io/cluster-inspec-demo/gke-tutorial-image
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
