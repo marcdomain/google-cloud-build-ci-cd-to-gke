@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: gke-tutorial-image
-          image: eu.gcr.io/cluster-inspec-demo/gke-tutorial-image
+          # this value is replaced during cloud build
+          image: IMAGE
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
